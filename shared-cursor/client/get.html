@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Get</title>
+        <style>
+            body {
+                margin: 0;
+                padding: 0;
+            }
+
+            #cursor {
+                display: block;
+                width: 10px;
+                height: 10px;
+                background-color: #000;
+                position: fixed;
+                left: 0;
+                top: 0;
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <div id="cursor"></div>
+
+    </body>
+
+    <script>
+
+        function updateView() {
+            console.log('update');
+
+            fetch('http://localhost:1111').then((response) => {
+                response.json().then(json => {
+                    document.getElementById('cursor').style.left = json.x + 'px';
+                    document.getElementById('cursor').style.top = json.y + 'px';
+                });
+            });
+
+        }
+
+        setInterval(updateView, 100);
+    </script>
+
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Set</title>
+        <style>
+            body {
+                margin: 0;
+                padding: 0;
+            }
+
+            #cursor {
+                display: block;
+                width: 10px;
+                height: 10px;
+                background-color: #000;
+                position: fixed;
+                left: 0;
+                top: 0;
+            }
+        </style>
+    </head>
+
+    <body>
+    </body>
+
+    <script>
+        var counter = 0;
+
+        function updateCoordinates(x, y) {
+            console.log('update');
+
+            fetch('http://localhost:1111', {
+                method: "POST",
+                body: JSON.stringify({
+                    x: x,
+                    y: y
+                }),
+                headers: {
+                    "Content-type": "application/json; charset=UTF-8"
+                }
+            });
+
+        }
+
+        document.addEventListener('pointermove', function (event) {
+            if (counter <= 10) {
+                counter++;
+            } else {
+                updateCoordinates(event.x, event.y)
+                counter = 0;
+            }
+        });
+
+    </script>
+
+</html>
