@@ -27,8 +27,6 @@
         var counter = 0;
 
         function updateCoordinates(x, y) {
-            console.log('update');
-
             fetch('http://localhost:1111', {
                 method: "POST",
                 body: JSON.stringify({
@@ -39,7 +37,6 @@
                     "Content-type": "application/json; charset=UTF-8"
                 }
             });
-
         }
 
         document.addEventListener('pointermove', function (event) {
