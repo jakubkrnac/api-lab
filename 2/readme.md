@@ -1,18 +1,20 @@
+[< home](https://github.com/jakubkrnac/api-lab)
+
 # API Lab 2
 
-For the second week we were was supposedto creaste a multi device application. I decided to create a shared cursor application. In order to achieve this I have made 3 programs. One acting as a server and keeping track where the cursor currenly is and two client programs, one for setting the position of the curson and second one to display the cursor.
+For the second week we were was supposed to create a multi device application. I decided to create a shared cursor application. In order to achieve this I have made 3 programs. One acting as a server and keeping track where the cursor currenly is and two client programs, one for setting the position of the curson and second one to display the cursor.
 > **Note**
 > node.js is required to run the server
 
 ## Server
-The server program was made using node.js, and it is quite simple in its essence. There are only two thing that it does, listen to `GET` and `POST` requests.
+The server program was made using node.js, and it is quite simple in its essence. There are only two things that it does, listen to `GET` and `POST` requests.
 
 ```javascript
 app.post('/', function(request, response){
     x = request.body.x;
     y = request.body.y;
 
-    response.send('');
+response.send('');
 });
 ```
 
@@ -58,18 +60,18 @@ function updateCoordinates(x, y) {
 
 ## Client get
 
-This page is used to display the cursor movement. I have used `setInterval()` function with a 100 milliseconds interval to send `GET` request to the server. I have experimented with a shorter intervals, but then the server just became unresponsive.
+This page is used to display the cursor movement. I have used `setInterval()` function with a 100 milliseconds interval to send `GET` request to the server. I have experimented with a shorter intervals, but then the server just became unresponsive because of too many requests.
 
 ```javascript
 function updateView() {
     console.log('update');
 
-    fetch('http://localhost:1111').then((response) => {
-        response.json().then(json => {
-            document.getElementById('cursor').style.left = json.x + 'px';
-            document.getElementById('cursor').style.top = json.y + 'px';
-        });
+fetch('http://localhost:1111').then((response) => {
+    response.json().then(json => {
+        document.getElementById('cursor').style.left = json.x + 'px';
+        document.getElementById('cursor').style.top = json.y + 'px';
     });
+});
 }
 ```
 

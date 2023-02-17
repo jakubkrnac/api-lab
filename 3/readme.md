@@ -1,3 +1,5 @@
+[< home](https://github.com/jakubkrnac/api-lab)
+
 # API Lab 3
 
 This week's task was to store data on the server, so we would be able to use them even in case of server restart. I have decided to store my data in a JSON file. I have created a simple API to demonstrate this.
@@ -46,7 +48,7 @@ When a query `http://localhost:2222/?key=12345678&clear=true` is submitted, the 
 
 ## Final thoughts
 
-It was to create an API from scratch, I think I got a better perspective on how complex the task of creating and API is. Furthermore, the API could be enriched with more features and could be hosted on a public server running node.js
+It was to create an API from scratch, I think I got a better perspective on how complex the task of creating an API is. Furthermore, the API could be enriched with more features and could be hosted on a public server running node.js
 
 &nbsp;
 
