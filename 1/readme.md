@@ -10,12 +10,12 @@ This gives it's users 100 free requests per month which isn't the best but it's 
 ## Testing the API
 
 First and foremost I wanted to see wheter the API works. I have used function `fetch()` to send a request to their server. In order to get actual data I had to use proper request query. In case of not providing all required parameters, the request will most probably fail. In order to get the price of a certain currencies during past days four paramaters must be submitted in the query, `startDate`, `stopDate`, `base` and `symbols`. I did assemle the query url using javascripts string interpolation:
-```
+```javascript
 const url = `${endPoint}?start_date=${startDate}&end_date=${endDate}&base=SEK&symbols=EUR`; 
 ```
 
 Another thing to keep in mind is the use of API key, without this it would not be possible to retrieve anything from the API. I had included this in the request header.
-```
+```javascript
 let response = await fetch(url, {
     method: 'GET',
     headers: {
@@ -28,7 +28,7 @@ Using this, I was able to receive data from the API. After this I had to clean u
 ## Using charts.js
 
 Now when I had the data, I wanted to display in a more human perceivable way. I have decided to use charts.js as I had already worked with this library before. In order to a display simple line chart we have to provide the libravy with data and label (previously mentioned prices and dates).
-```
+```javascript
 new Chart(ctx, {
     type: 'line',
     data: {
