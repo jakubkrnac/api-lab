@@ -1,3 +1,4 @@
 .DS_Store
-shared-cursor/server/node_modules/
-shared-cursor/server/package-lock.json
+2/server/node_modules/
+2/server/package.json
+2/server/package-lock.json
