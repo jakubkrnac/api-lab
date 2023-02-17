@@ -12,8 +12,6 @@ async function displayChart() {
 
     const url = `${endPoint}?start_date=${startDate}&end_date=${endDate}&base=SEK&symbols=EUR`
 
-    console.log('fetching');
-
     let response = await fetch(url, {
         method: 'GET',
         headers: {
